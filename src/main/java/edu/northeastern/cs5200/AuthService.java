@@ -21,12 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 
-
+@CrossOrigin
 @RestController
 public class AuthService {
 	
 	@GetMapping("api/authenticate")
-	@CrossOrigin(origins = "http://cs5200-summer-wolves-spp.s3-website-us-east-1.amazonaws.com")
+
 	public String authenticate() throws UnsupportedEncodingException{
 		
 //		Variables;

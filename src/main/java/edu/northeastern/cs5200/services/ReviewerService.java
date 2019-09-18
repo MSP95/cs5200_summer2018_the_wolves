@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.northeastern.cs5200.daos.ReviewerDao;
 import edu.northeastern.cs5200.models.Reviewer;
 
+@CrossOrigin
 @RestController
 public class ReviewerService {
 	
@@ -19,14 +20,12 @@ public class ReviewerService {
 	ReviewerDao rd;
 	
 	@GetMapping("/api/reviewer")
-	@CrossOrigin(origins = "http://cs5200-summer-wolves-spp.s3-website-us-east-1.amazonaws.com")
 	public List<Reviewer> findAllReviewers() {
 
 		return rd.findAllReviewers();
 	}
 
 	@PostMapping("/api/reviewer")
-	@CrossOrigin(origins = "http://cs5200-summer-wolves-spp.s3-website-us-east-1.amazonaws.com")
 	public Reviewer createReviewer(@RequestBody Reviewer r) {
 		return rd.createReviewer(r);
 	}

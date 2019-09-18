@@ -15,33 +15,30 @@ import edu.northeastern.cs5200.daos.PlaylistDao;
 import edu.northeastern.cs5200.models.Playlist;
 import edu.northeastern.cs5200.models.Track;
 
+@CrossOrigin
 @RestController
 public class PlaylistService {
 	@Autowired
 	PlaylistDao pd;
 	
 	@PostMapping("")
-	@CrossOrigin(origins = "http://cs5200-summer-wolves-spp.s3-website-us-east-1.amazonaws.com")
 	public Playlist createPlaylist(Playlist p) {
 		return pd.createPlaylist(p);
 	}
 	
 	
 	@GetMapping("/api/playlist/tracks/{id}")
-	@CrossOrigin(origins = "http://cs5200-summer-wolves-spp.s3-website-us-east-1.amazonaws.com")
 	public List<Track> findAllTracksInPlaylist(@PathVariable("id") int id){
 		return pd.getAllTracksInPlaylist(id);
 	}
 	
 	@PostMapping("/api/playlist/addtrack/{id}")
-	@CrossOrigin(origins = "http://cs5200-summer-wolves-spp.s3-website-us-east-1.amazonaws.com")
 	public void addTrackToPlaylist(@PathVariable("id") int id,
 			@RequestBody Track t) {
 		pd.addTrackToPlaylist(id, t);
 	}
 	
 	@DeleteMapping("/api/playlist/delete_track/{id}")
-	@CrossOrigin(origins = "http://cs5200-summer-wolves-spp.s3-website-us-east-1.amazonaws.com")
 	public void deleteTrackFromPlaylist(@PathVariable("id") int id,
 			@RequestBody Track t) {
 		pd.deleteTrackFromPlaylist(id, t);
