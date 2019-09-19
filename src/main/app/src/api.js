@@ -3,7 +3,7 @@ import store from './store';
 import request from 'request'; // "Request" library
 
 // let API_PATH = "//cs5200-project-spp.us-east-1.elasticbeanstalk.com"
-let API_PATH = "http://localhost:8080"
+let API_PATH = "http://spp.manishpatil.net:8080"
 class TheServer {
   getNewReleases(token){
 
